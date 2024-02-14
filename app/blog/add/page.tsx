@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
-/* エンドポイント処理 */
+/* 非同期処理 */
 const postBlog = async (
   title: string | undefined,
   description: string | undefined
