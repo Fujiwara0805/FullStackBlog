@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PostType } from "./types";
+import { PostProps } from "@/types/types";
 
 async function fetchAllBlog() {
   try {
@@ -7,7 +7,6 @@ async function fetchAllBlog() {
       cache: "no-store",
     });
     const data = await res.json();
-    console.log(data);
     return data.posts;
   } catch (error) {
     console.log(error);
@@ -19,7 +18,7 @@ const Home = async () => {
 
   return (
     <main className="w-full h-ful">
-      <div className="md:w-2/4 sm:w-3/4 m-auto p-4 my-5 rounded-lg bg-blue-500 drop-shadow-xl">
+      <div className="md:w-2/4 sm:w-3/4 m-auto p-4 my-5 rounded-lg bg-violet-700 drop-shadow-xl">
         <h1 className="text-slate-200 text-center text-2xl font-extrabold">
           Full Stack Blog 📝
         </h1>
@@ -35,7 +34,7 @@ const Home = async () => {
       </div>
 
       <div className="w-full flex flex-col justify-center items-center">
-        {posts.map((post: PostType) => {
+        {posts.map((post: PostProps) => {
           return (
             <div
               className="w-3/4 p-4 rounded-md mx-3 my-2 bg-slate-300 flex flex-col justify-center"
@@ -47,14 +46,14 @@ const Home = async () => {
                 </div>
                 <Link
                   href={`/blog/edit/${post.id}`}
-                  className="px-4 py-1 text-center text-xl bg-slate-900 rounded-md font-semibold text-slate-200"
+                  className="px-4 py-1 text-center text-xl bg-slate-800 rounded-md font-semibold text-slate-200"
                 >
                   編集
                 </Link>
               </div>
 
               <div className="mr-auto my-1">
-                <blockquote className="font-bold text-slate-700">
+                <blockquote className="font-bold text-slate-600">
                   {new Date(post.date).toDateString()}
                 </blockquote>
               </div>
