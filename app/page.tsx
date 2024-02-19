@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { PostProps } from "@/types/types";
+import SearchBox from "./components/elements/SearchBox/SearchBox";
 
+/* Blog全記事取得 */
 async function fetchAllBlog() {
   try {
     const res = await fetch(`http://localhost:3000/api/blog`, {
@@ -23,11 +25,12 @@ const Home = async () => {
           Full Stack Blog 📝
         </h1>
       </div>
+      <SearchBox />
       {/* Link */}
       <div className="flex my-5">
         <Link
           href={"/blog/add"}
-          className=" md:w-1/6 sm:w-2/4 text-center rounded-md p-2 m-auto bg-slate-300 font-semibold"
+          className=" md:w-1/6 sm:w-2/4 text-center rounded-md p-2 m-auto bg-blue-500 font-semibold"
         >
           ブログ新規作成
         </Link>
