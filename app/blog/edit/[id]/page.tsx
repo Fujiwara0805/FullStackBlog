@@ -80,7 +80,7 @@ function EditBlog({ params }: { params: { id: number } }) {
   };
   /*初期化処理 */
   useEffect(() => {
-    toast.loading("ブログデータを取得しています!! 🚀", { id: "1" });
+    toast.loading("ブログを取得しています!! 🚀", { id: "1" });
     getBlogById(params.id)
       .then((data) => {
         if (titleRef.current && descriptionRef.current) {
