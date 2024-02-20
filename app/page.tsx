@@ -25,7 +25,7 @@ const Home = async () => {
           Full Stack Blog 📝
         </h1>
       </div>
-      <SearchBox />
+      {/* <SearchBox /> */}
       {/* Link */}
       <div className="flex my-5">
         <Link

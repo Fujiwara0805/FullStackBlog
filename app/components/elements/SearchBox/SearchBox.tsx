@@ -4,15 +4,18 @@ import React, { useState } from "react";
 function SearchBox() {
   /* field */
   const [query, setQuery] = useState("");
+  const [results, setResults] = useState("");
 
   /* Blog検索処理 */
   const handleSearch = async () => {
     try {
       const res = await fetch(`http://localhost:3000/api/blog/search`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }), //queryをサーバーへ送信
       });
       const data = await res.json();
-      return data.posts;
+      setResults(data);
     } catch (error) {
       console.log(error);
     }
